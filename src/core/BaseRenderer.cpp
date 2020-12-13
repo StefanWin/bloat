@@ -2,7 +2,18 @@
 
 BaseRenderer::BaseRenderer()
 {
-    window_manager = std::make_unique<WindowManager>(1280, 720, "bloat");
+    if (!glfwInit())
+    {
+        throw std::runtime_error("failed to initialize glfw3");
+    }
+    glfwWindowHint(GLFW_SAMPLES, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    window = glfwCreateWindow(1280, 720, "bloat", nullptr, nullptr);
+    glfwSetWindowUserPointer(window, this);
+    glfwSetKeyCallback(window, BaseRenderer::base_key_callback);
+    glfwMakeContextCurrent(window);
     if (glewInit() != GLEW_OK)
     {
         throw std::runtime_error("failed to initialize glew");
@@ -12,17 +23,24 @@ BaseRenderer::BaseRenderer()
 
 BaseRenderer::~BaseRenderer()
 {
-    window_manager = nullptr;
+    glfwDestroyWindow(window);
+    glfwTerminate();
+}
+
+void BaseRenderer::base_key_callback(GLFWwindow *window, int key, int scancode, int action, int mods)
+{
+    auto *base_renderer = reinterpret_cast<BaseRenderer *>(glfwGetWindowUserPointer(window));
+    base_renderer->key_callback(key, scancode, action, mods);
 }
 
 void BaseRenderer::run()
 {
-    while (!glfwWindowShouldClose(window_manager->window))
+    while (!glfwWindowShouldClose(window))
     {
         pre_render();
         render();
         post_render();
-        glfwSwapBuffers(window_manager->window);
+        glfwSwapBuffers(window);
         glfwPollEvents();
     }
 }

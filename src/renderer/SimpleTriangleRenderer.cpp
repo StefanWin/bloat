@@ -56,3 +56,7 @@ void SimpleTriangleRenderer::post_render()
 {
     glDisableVertexAttribArray(0);
 }
+
+void SimpleTriangleRenderer::key_callback(int key, int scancode, int action, int mods)
+{
+}
