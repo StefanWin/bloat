@@ -5,8 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(APP_TARGET bloat)
 
-find_package(glm REQUIRED)
-include_directories(${GLM_INCLUDE_DIRS})
+if(UNIX)
+    set(OpenGL_GL_PREFERENCE GLVND)
+endif()
 
 find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIRS})
@@ -14,19 +15,18 @@ include_directories(${OPENGL_INCLUDE_DIRS})
 find_package(GLEW REQUIRED)
 include_directories(${GLEW_INCLUDE_DIRS})
 
-find_package(glfw3 REQUIRED)
+add_subdirectory(external/glfw)
 include_directories(${GLFW_INCLUDE_DIRS})
 link_libraries(${GLFW_LIBRARY_DIRS})
 
+add_subdirectory(external/glm)
+include_directories(${GLM_INCLUDE_DIRS})
+
 include_directories(
     ${PROJECT_SOURCE_DIR}/include
-    ${PROJECT_SOURCE_DIR}/src
 )
 
 file(GLOB all_sources 
-    "${PROJECT_SOURCE_DIR}/include/core/*.h"
-    "${PROJECT_SOURCE_DIR}/include/util/*.h"
-    "${PROJECT_SOURCE_DIR}/include/renderer/*.h"
     "${PROJECT_SOURCE_DIR}/src/core/*.cpp"
     "${PROJECT_SOURCE_DIR}/src/util/*.cpp"
     "${PROJECT_SOURCE_DIR}/src/renderer/*.cpp"
@@ -40,5 +40,4 @@ target_link_libraries(
         glfw
         ${OPENGL_LIBRARIES}
         ${GLEW_LIBRARIES}
-        ${EXTRA_LIBS}
 )
