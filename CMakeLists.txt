@@ -5,6 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(APP_TARGET bloat)
 
+find_package(glm REQUIRED)
+include_directories(${GLM_INCLUDE_DIRS})
+
 find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIRS})
 
