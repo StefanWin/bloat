@@ -1,5 +1,8 @@
 #pragma once
 
+#include <vector>
+#include <array>
+#include "util/Vertex.h"
 #include "core/BaseRenderer.h"
 
 class SimpleTriangleRenderer : public BaseRenderer
@@ -8,6 +11,9 @@ private:
     GLuint program_id;
     GLuint vertex_array_id;
     GLuint vertex_buffer;
+
+    std::vector<Vertex> vertices;
+    std::array<GLuint,3> attribute_locations;
 
 protected:
     void pre_render() override;
