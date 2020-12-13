@@ -24,7 +24,12 @@ include_directories(
 )
 
 file(GLOB all_sources 
-    "${PROJECT_SOURCE_DIR}/include/*.h"
+    "${PROJECT_SOURCE_DIR}/include/core/*.h"
+    "${PROJECT_SOURCE_DIR}/include/util/*.h"
+    "${PROJECT_SOURCE_DIR}/include/renderer/*.h"
+    "${PROJECT_SOURCE_DIR}/src/core/*.cpp"
+    "${PROJECT_SOURCE_DIR}/src/util/*.cpp"
+    "${PROJECT_SOURCE_DIR}/src/renderer/*.cpp"
     "${PROJECT_SOURCE_DIR}/src/*.cpp"
 )
 

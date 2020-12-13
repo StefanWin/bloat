@@ -1,6 +1,6 @@
 #pragma once
 
-#include "BaseRenderer.h"
+#include "core/BaseRenderer.h"
 
 class SimpleTriangleRenderer : public BaseRenderer
 {

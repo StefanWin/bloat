@@ -1,5 +1,5 @@
-#include "SimpleTriangleRenderer.h"
-#include "Shader.h"
+#include "renderer/SimpleTriangleRenderer.h"
+#include "util/Shader.h"
 
 SimpleTriangleRenderer::SimpleTriangleRenderer()
 {

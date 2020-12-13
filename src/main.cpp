@@ -1,6 +1,6 @@
 #include <memory>
 
-#include "SimpleTriangleRenderer.h"
+#include "renderer/SimpleTriangleRenderer.h"
 
 int main()
 {

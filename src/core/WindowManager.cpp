@@ -1,5 +1,5 @@
 #include <stdexcept>
-#include "WindowManager.h"
+#include "core/WindowManager.h"
 
 WindowManager::WindowManager(int w, int h, std::string window_title)
 {

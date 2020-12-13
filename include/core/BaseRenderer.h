@@ -1,7 +1,7 @@
 #pragma once
 #include <GL/glew.h>
 #include <memory>
-#include "WindowManager.h"
+#include "core/WindowManager.h"
 
 class BaseRenderer
 {
