@@ -1,10 +1,10 @@
 #include <memory>
 
-#include "App.h"
+#include "SimpleTriangleRenderer.h"
 
 int main()
 {
-    std::unique_ptr<App> app = std::make_unique<App>();
-    app->render();
+    std::unique_ptr<SimpleTriangleRenderer> app = std::make_unique<SimpleTriangleRenderer>();
+    app->run();
     return 0;
 }
