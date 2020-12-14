@@ -19,8 +19,6 @@ protected:
     void pre_render() override;
     void render() override;
     void post_render() override;
-    void key_callback(int key, int scancode, int action, int mods) override;
-
 public:
     SimpleTriangleRenderer(/* args */);
     ~SimpleTriangleRenderer();

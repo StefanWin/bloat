@@ -58,7 +58,3 @@ void SimpleTriangleRenderer::post_render()
     glBindVertexArray(0);
     glUseProgram(0);
 }
-
-void SimpleTriangleRenderer::key_callback(int key, int scancode, int action, int mods)
-{
-}
