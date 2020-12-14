@@ -7,10 +7,13 @@ in vec3 normal;
 out vec4 fragColor;
 out vec3 fragNormal;
 
-uniform mat4 MVP;
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 proj;
 
 void main()
 {
+    mat4 mvp = proj * view * model;
     fragColor = color;
-    gl_Position = position * MVP; 
+    gl_Position = mvp * position; 
 }

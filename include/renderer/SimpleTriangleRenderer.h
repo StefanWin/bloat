@@ -13,7 +13,13 @@ private:
     GLuint vertex_buffer;
     GLuint matrix_id;
 
-    glm::mat4 mvp;
+    GLuint model_uniform;
+    GLuint view_uniform;
+    GLuint proj_uniform;
+
+    glm::mat4 model;
+    glm::mat4 view;
+    glm::mat4 proj;
 
     std::vector<Vertex> vertices;
     std::array<GLuint,3> attribute_locations;
