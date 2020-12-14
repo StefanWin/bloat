@@ -11,6 +11,9 @@ private:
     GLuint program_id;
     GLuint vertex_array_id;
     GLuint vertex_buffer;
+    GLuint matrix_id;
+
+    glm::mat4 mvp;
 
     std::vector<Vertex> vertices;
     std::array<GLuint,3> attribute_locations;

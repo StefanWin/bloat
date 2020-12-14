@@ -7,8 +7,10 @@ in vec3 normal;
 out vec4 fragColor;
 out vec3 fragNormal;
 
+uniform mat4 MVP;
+
 void main()
 {
     fragColor = color;
-    gl_Position = position;
+    gl_Position = position * MVP; 
 }

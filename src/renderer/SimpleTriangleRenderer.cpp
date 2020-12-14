@@ -1,11 +1,22 @@
 #include "renderer/SimpleTriangleRenderer.h"
 #include "util/Shader.h"
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <imgui.h>
 
 SimpleTriangleRenderer::SimpleTriangleRenderer()
 {
     program_id = load_shaders("resources/shader/simple.vert", "resources/shader/simple.frag");
+
+    matrix_id = glGetUniformLocation(program_id, "MVP");
+
+    glm::mat4 proj = glm::perspective(glm::radians(45.0f), 16.0f / 9.0f, 0.1f, 100.0f);
+    glm::mat4 view = glm::lookAt(
+        glm::vec3(0, 0, -3),
+        glm::vec3(0, 0, 0),
+        glm::vec3(0, 1, 0));
+    glm::mat4 model = glm::mat4(1.0f);
+    mvp = proj * view * model;
 
     attribute_locations[0] = glGetAttribLocation(program_id, "position");
     attribute_locations[1] = glGetAttribLocation(program_id, "color");
@@ -45,6 +56,7 @@ void SimpleTriangleRenderer::pre_render()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glUseProgram(program_id);
+    glUniformMatrix4fv(matrix_id, 1, GL_FALSE, &mvp[0][0]);
     glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
     glBindVertexArray(vertex_array_id);
 }
@@ -62,5 +74,4 @@ void SimpleTriangleRenderer::post_render()
 
 void SimpleTriangleRenderer::render_gui()
 {
-
 }
