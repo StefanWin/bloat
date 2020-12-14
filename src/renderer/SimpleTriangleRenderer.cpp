@@ -62,7 +62,5 @@ void SimpleTriangleRenderer::post_render()
 
 void SimpleTriangleRenderer::render_gui()
 {
-    ImGui::Begin("Hello");
-    ImGui::Text("Hello World");
-    ImGui::End();
+
 }
