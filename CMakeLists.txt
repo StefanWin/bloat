@@ -23,13 +23,15 @@ add_subdirectory(external/glm)
 include_directories(${GLM_INCLUDE_DIRS})
 
 include_directories(
-    ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/include/ # not specifically adding directories preserves directory structure
+    ${PROJECT_SOURCE_DIR}/include/imgui # otherwise it wont find itself in the subdirectories
 )
 
 file(GLOB all_sources 
     "${PROJECT_SOURCE_DIR}/src/core/*.cpp"
     "${PROJECT_SOURCE_DIR}/src/util/*.cpp"
     "${PROJECT_SOURCE_DIR}/src/renderer/*.cpp"
+    "${PROJECT_SOURCE_DIR}/src/imgui/*.cpp"
     "${PROJECT_SOURCE_DIR}/src/*.cpp"
 )
 
