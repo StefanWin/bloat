@@ -10,6 +10,7 @@ protected:
     virtual void pre_render() = 0;
     virtual void render() = 0;
     virtual void post_render() = 0;
+    virtual void render_gui() = 0;
 public:
     BaseRenderer(/* args */);
     ~BaseRenderer();

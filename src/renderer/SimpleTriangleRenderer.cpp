@@ -1,6 +1,7 @@
 #include "renderer/SimpleTriangleRenderer.h"
 #include "util/Shader.h"
 #include <glm/glm.hpp>
+#include <imgui.h>
 
 SimpleTriangleRenderer::SimpleTriangleRenderer()
 {
@@ -57,4 +58,11 @@ void SimpleTriangleRenderer::post_render()
 {
     glBindVertexArray(0);
     glUseProgram(0);
+}
+
+void SimpleTriangleRenderer::render_gui()
+{
+    ImGui::Begin("Hello");
+    ImGui::Text("Hello World");
+    ImGui::End();
 }

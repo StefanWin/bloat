@@ -19,6 +19,7 @@ protected:
     void pre_render() override;
     void render() override;
     void post_render() override;
+    void render_gui() override;
 public:
     SimpleTriangleRenderer(/* args */);
     ~SimpleTriangleRenderer();
