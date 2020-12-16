@@ -13,7 +13,7 @@ BaseRenderer::BaseRenderer()
     {
         throw std::runtime_error("failed to initialize glfw3");
     }
-    window = glfwCreateWindow(1280, 720, "bloat", nullptr, nullptr);
+    window = glfwCreateWindow(window_width, window_height, "bloat", nullptr, nullptr);
     glfwMakeContextCurrent(window);
     glfwSwapInterval(0);
     if (glewInit() != GLEW_OK)

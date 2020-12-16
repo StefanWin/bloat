@@ -15,6 +15,9 @@ private:
 
 protected:
     GLFWwindow *window;
+    int window_width = 1280;
+    int window_height = 720;
+
     virtual void pre_render() = 0;
     virtual void render() = 0;
     virtual void post_render() = 0;
