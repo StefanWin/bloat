@@ -9,8 +9,8 @@ private:
     void render_stats_window();
 
     bool lock_fps = true;
-    int64_t render_time;
-    int64_t pipeline_time;
+    int64_t render_time = 0;
+    int64_t pipeline_time = 0;
     uint8_t fps_target = 60;
 
 protected:

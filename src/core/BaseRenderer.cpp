@@ -103,8 +103,8 @@ void BaseRenderer::render_stats_window()
         ImGui::EndMenuBar();
     }
     ImGui::Checkbox("Lock FPS", &lock_fps);
-    ImGui::Text("Render Time : %d", render_time);
-    ImGui::Text("Last Pipeline Time : %d", pipeline_time);
+    ImGui::Text("Render Time : %ld", render_time);
+    ImGui::Text("Last Pipeline Time : %ld", pipeline_time);
     ImGui::Text("ImGui Render Time: %.3f ms/frame", 1000.0f / ImGui::GetIO().Framerate);
     ImGui::Text("ImGui FPS: %.1f FPS", ImGui::GetIO().Framerate);
     ImGui::End();

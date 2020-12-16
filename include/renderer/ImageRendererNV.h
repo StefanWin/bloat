@@ -6,10 +6,10 @@ class ImageRendererNV : public BaseRenderer
 {
 private:
     /* data */
-    GLuint texture;
-    int img_width;
-    int img_height;
-    int img_channels;
+    GLuint texture = 0;
+    int img_width = 0;
+    int img_height = 0;
+    int img_channels = 0;
 protected:
     void pre_render() override;
     void render() override;
