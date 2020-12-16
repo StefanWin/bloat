@@ -1,6 +1,7 @@
 #include "renderer/ImageRendererNV.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
+#include <imgui.h>
 
 ImageRendererNV::ImageRendererNV(/* args */)
 {
@@ -33,6 +34,7 @@ ImageRendererNV::~ImageRendererNV()
 
 void ImageRendererNV::pre_render()
 {
+    glClear(GL_COLOR_BUFFER_BIT);
     glBindTexture(GL_TEXTURE_2D, texture);
 }
 
@@ -54,4 +56,7 @@ void ImageRendererNV::post_render()
 
 void ImageRendererNV::render_gui()
 {
+    ImGui::Begin("ImageRendererNV");
+    ImGui::Text("Image Dimensions: %dx%d", img_width, img_height);
+    ImGui::End();
 }
