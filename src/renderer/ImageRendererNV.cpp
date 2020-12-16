@@ -43,7 +43,7 @@ void ImageRendererNV::render()
     glActiveTexture(GL_TEXTURE0);
     glDrawTextureNV(texture, 0,
                     0, 0,
-                    img_width, img_height,
+                    window_width, window_height,
                     1,
                     0, 0,
                     1, 1);
