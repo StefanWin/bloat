@@ -25,6 +25,7 @@ include_directories(${GLM_INCLUDE_DIRS})
 include_directories(
     ${PROJECT_SOURCE_DIR}/include/ # not specifically adding directories preserves directory structure
     ${PROJECT_SOURCE_DIR}/include/imgui # otherwise it wont find itself in the subdirectories
+    ${PROJECT_SOURCE_DIR}/external/stb
 )
 
 file(GLOB all_sources 
